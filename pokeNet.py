@@ -48,7 +48,7 @@ class PokeNet(torch.nn.Module):
         features2 = features2.view(features2.size(0), self.D_features)
         
         lat1 = self.latent1(features1)
-        lat2 = self.latent2(features2)
+        lat2 = self.latent1(features2)
         
         join_features = torch.cat((lat1, lat2), 1)
         output_actions = self.inverse_model(join_features)
@@ -108,7 +108,7 @@ class PokeNet1C(torch.nn.Module):
         features2 = features2.view(features2.size(0), self.D_features)
         
         lat1 = self.latent1(features1)
-        lat2 = self.latent2(features2)
+        lat2 = self.latent1(features2)
         
         join_features = torch.cat((lat1, lat2), 1)
         output_actions = self.inverse_model(join_features)
